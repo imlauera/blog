@@ -1,0 +1,4 @@
+[submodule "imlauera/public"]
+	path = imlauera/public
+	url = git@github.com:imlauera/imlauera.github.io.git
+	branch = master

@@ -1,0 +1,5 @@
+baseURL = "https://imlauera.github.io/"
+languageCode = "en-us"
+title = "Mi Blog Personal"
+
+theme = "lugo"
