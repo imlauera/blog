@@ -48,7 +48,9 @@ Primero instalamos iconv: `sudo apt install iconv`.
 `iconv`: convertir texto de una codificación de caracteres a otra. Es necesario porque sino festival en español no te lee los tíldes ni las ñ. Más información ejecutá `man iconv`.
 
 Luego para cambiar la codificación del archivo:    
-`iconv -f utf-8 -t iso-8859-1 texto_prueba -o texto_prueba_iso`.   
+```bash
+iconv -f utf-8 -t iso-8859-1 texto_prueba -o texto_prueba_iso
+```
 
 Y ahora podés leerlo en español con las tíldes y la ñ con el comando `festival --tts texto_prueba_iso`
 
@@ -58,18 +60,27 @@ Y ahora podés leerlo en español con las tíldes y la ñ con el comando `festiv
 `text2wave`: Es un script que trabaja con Festival y forma parte del mismo, sirve para generar un archivo wav desde un archivo de texto.
 
 
-```text2wave -o salida.wav -eval '(voice_el_diphone)' texto_prueba```    
+```bash
+text2wave -o salida.wav -eval '(voice_el_diphone)' texto_prueba
+```
 Si ya tenés configurada la voz deseada por defecto en `~/.festivalrc` no necesitás poner el argumento `-eval`.
 
 También se puede generar un archivo `mp3` de la siguiente forma:   
-```text2wave text_file | lame - text.mp3```  
+```bash
+text2wave text_file | lame - text.mp3
+```  
 Tenés que tener el comando `lame` instalado, 
-y se lo instala con: `sudo apt install lame`.
+y se lo instala con: 
+```bash
+sudo apt install lame
+```
 
 **OJO**: ¡¡Acordate que primero tenés que cambiar la codificación del archivo!! si querés que pueda leer las tíldes y las ñ en español, el comando para cambiar la codificación está descripto más arriba.   
 
 Ahora si querés que lea el texto seleccionado gráficamente con el mouse. Podés usar
-`sudo apt-get install xsel`.   
+```bash
+sudo apt-get install xsel
+```
 
 
 `xsel`: Te permite manipular con el texto seleccionado gráficamente, más adelante muestro un ejemplo de como funciona.
@@ -77,7 +88,9 @@ Más información ejecutá `man xsel` en la consola.
 Si seleccionás algún tipo de texto en cualquier aplicación 
 y ejecutás el siguiente comando, te lo va a leer.
 
-`xsel | iconv -c -f utf-8 -t iso-8859-1 | festival --language`
+```bash
+xsel | iconv -c -f utf-8 -t iso-8859-1 | festival --language
+```
 
 Si querés guardar el audio generado podés usar **text2wave** (un script de Festival)
 de la siguiente manera

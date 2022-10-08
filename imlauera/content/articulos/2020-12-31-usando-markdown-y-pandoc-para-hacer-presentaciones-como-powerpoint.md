@@ -11,7 +11,7 @@ texlive-full.
 **Markdown** es un lenguaje de marcado cuya funcionalidad es darle estilo a un texto.
 
 Abrimos un archivo llamado: hello.md y escribimos
-{% highlight markdown %}
+```markdown
 # Hello World.
 
 Esto es una prueba.
@@ -21,7 +21,7 @@ Esto es una prueba.
 * Prueba
 
 ## Este es un título más pequeño
-{% endhighlight %}
+```
 Más información: [Markdown Cheat Sheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)  
 También se puede usar etiquetas HTML en Markdown.
 
@@ -37,7 +37,7 @@ pandoc hello.md -t beamer -o hello.pdf
 
 #### Cambiando diseño, agregando título, autor en la presentación usando metadata:
 En el archivo hello.md agregamos al comienzo:
-{% highlight markdown %}
+```markdown
 ---
 title:
 - Hola Mundo.
@@ -46,14 +46,14 @@ author:
 theme:
 - Copenhagen
 ---
-{% endhighlight %}
+```
 
 Se puede también usar otros beamer themes, agregando en la sección de metadata mostrada arriba, lo siguiente:
 
-{% highlight markdown %}
+```markdown
 colortheme:
 - albatross
-{% endhighlight %}
+```
 
 Podés usar y bajar otros buscando por beamer themes.
 
