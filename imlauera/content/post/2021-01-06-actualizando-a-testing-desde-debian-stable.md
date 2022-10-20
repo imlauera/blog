@@ -1,8 +1,18 @@
----
-layout: post
-title: Actualizando a Testing desde Debian Stable
-date: 2021-01-06 20:49 -0300
----
++++
+title = "Actualizando a Testing desde Debian Stable"
+date = "2021-01-06 20:49 -0300"
+description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+tags = [
+    "debian",
+    "testing",
+    "linux",
+]
+categories = [
+    "linux",
+]
++++
+
+
 
 ### Cómo funciona Debian de pruebas, Testing
 
