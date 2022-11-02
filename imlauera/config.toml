@@ -1,96 +1,66 @@
-baseURL = "https://imlauera.github.io"
-title = "ANDRES IMLAUER BLOG"
+baseurl = "https://imlauera.github.io"
+title = "Personal BLog"
 languageCode = "en"
-DefaultContentLanguage = "en" # Change this to change the site's language
-theme = "hugo.386"
-preserveTaxonomyNames = true
+DefaultContentLanguage = "en"
+paginate = "10" # Number of posts per page
+theme = "hugo-dpsg"
 
-[params]
-    # The name to display as main title in the home page
-    mainpagetitle = "Bienvenidos a mi blog personal"
+[Author] # Used in authorbox
+  name = "Scout Master"
+  bio = "The Scout Master is the leader of this local scout group"
+  avatar = "img/avatar.png"
 
-    # The subtitle to display under the title in the home page
-    mainpagesubtitle = "Bienvenidos a los 90s!" 
+[Params]
+  description = "Bienvenidos a mi Blog!" # Site description. Used in meta description
+  copyright = "DGSP local group" # Footer copyright holder, otherwise will use site title
+  opengraph = true # Enable OpenGraph if true
+  schema = true # Enable Schema
+  twitter_cards = true # Enable Twitter Cards if true
+  readmore = false # Show "Read more" button in list if true
+  authorbox = true # Show authorbox at bottom of pages if true
+  toc = true # Enable Table of Contents
+  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+  indexPager = true # Show pager navigation on index page
+  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
+  mainSections = ["post", "blog", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  dateformat = "02.01.2006" # Change the format of dates
 
-    # The description of your website. It will be displayed in the home page
-    mainpagedesc = "Hola. Gracias por pasarte por mi blog, espero que puedas aprender una o dos cosas aca." 
-    # The name to display in the copyright section in the footer
-    copyrightname = "JM Fergeau"
+[Params.style.vars]
+  highlightColor = "#003056" # Override main theme color
 
-    # The url to use as link in the copyright name in the footer. Leave empty to use none.
-    copyrighturl = "http://jmf-portfolio.netlify.com"
+[Params.logo]
+  image = "img/placeholder.png" # Logo image. Path relative to "static"
+  header = "img/header.jpg" # Header image. Path relative to "static"
+  title = "Andres Imlauer" # Logo title, otherwise will use site title
+  subtitle = "Bienvenidos a Mi Blog Personal" # Logo subtitle
 
-    # Show the "built on Hugo" disclaimer
-    showhugo = false
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = false # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+  # alternatively "ddg-search" can be used, to search via DuckDuckGo
+  # widgets = ["ddg-search", "recent", "categories", "taglist", "social", "languages"]
 
-    # Urls for social networks
-    linkedin = "https://linkedin.com"
-    github = "https://github.com/imlauera"
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget
 
-    # Enables or disables the loading animations. false activates them. Default is false.
-    loadfastload = false
+[Params.footer]
+  text = "[Imprint and Privacy](/imprint)" # Extra text in footer row, understands markdown
+  right = "Donate!" # Right-aligned text in footer row, understands markdown
 
-    # Sets the speed for the page loading effect. Default is 1.0.
-    loadspeedfactor = 1.0
-
-    # Enables or disables the second flyby cursor. Default is false.
-    loadonepass = false
-
-[params.copyright]
-    #name = "JM Fergeau"
-
-    # The url to use as link in the copyright name in the footer. Leave empty to use none.
-    #url = "http://jmf-portfolio.netlify.com"
-
-    # Text to go before copyright information
-    #prefix = "[hugo.386 theme by Max le Fou](https://gitlab.com/maxlefou/hugo.386)"
-
-    # Text to go between copyright and hugo disclaimer (if enabled)
-    #suffix = "Example site"
-
+# Custom menu items, normally controlled via front matter in /content files
 [menu]
-  # This displays buttons in the navbar to access your contents
   [[menu.main]]
-    identifier = "about" # An unique identifier for the button
-    name = "Acerca"       # A display name for the button
-    url = "/about/"      # The path to the content. It can lead to a single page (like here)
-    weight = 10          # A number to order the buttons in the navbar
+    identifier = "start"
+    name = "Start"
+    url = "/"
+    weight = 1
 
   [[menu.main]]
-    identifier = "posts"
-    name = "Lista Publicaciones"
-    url = "/post/"       # The path can lead to a content folder too.
-    weight = 20
-
-[taxonomies]
-category = "categories"
-tag = "tags"
-
-
-[privacy]
-
-  [privacy.vimeo]
-    disabled = false
-    simple = true
-
-  [privacy.twitter]
-    disabled = false
-    enableDNT = true
-    simple = true
-
-  [privacy.instagram]
-    disabled = false
-    simple = true
-
-  [privacy.youtube]
-    disabled = false
-    privacyEnhanced = true
-
-[services]
-
-  [services.instagram]
-    disableInlineCSS = true
-
-  [services.twitter]
-    disableInlineCSS = true
-
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 2

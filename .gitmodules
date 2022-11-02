@@ -2,3 +2,12 @@
 	path = imlauera/public
 	url = git@github.com:imlauera/imlauera.github.io.git
 	branch = master
+[submodule "imlauera/themes/themes/hugo-theme-stack"]
+	path = imlauera/themes/themes/hugo-theme-stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack
+[submodule "imlauera/themes/hugo-theme-stack"]
+	path = imlauera/themes/hugo-theme-stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack
+[submodule "imlauera/themes/hugo-dpsg"]
+	path = imlauera/themes/hugo-dpsg
+	url = https://github.com/pfadfinder-konstanz/hugo-dpsg

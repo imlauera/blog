@@ -1,11 +1,9 @@
 +++
 title = "Actualizando a Testing desde Debian Stable"
-date = "2021-01-06 20:49 -0300"
-description = "Sample article showcasing basic Markdown syntax and formatting for HTML elements."
+date = "2021-01-06"
+description = "Cómo funciona Debian de pruebas, Testing"
 tags = [
     "debian",
-    "testing",
-    "linux",
 ]
 categories = [
     "linux",
@@ -14,13 +12,12 @@ categories = [
 
 
 
-### Cómo funciona Debian de pruebas, Testing
-
 Los paquetes desde Debian inestable entran automáticamente en la siguiente distribución estable de pruebas(Debian Testing), cuando una lista de requerimientos se completa: 
 
-> * El paquete ha estado en "inestable"(unstable) por lo menos 2-10 días (dependiendo de la urgencia de la subida).
-* Se ha construido el paquete para todas las arquitecturas para las que la presente versión de pruebas fue construida.
-* Instalar el paquete en pruebas no hará la distribución menos instalable.
+> * El paquete ha estado en "inestable"(unstable) por lo menos 2-10 días (dependiendo de la urgencia de la subida).  
+
+* Se ha construido el paquete para todas las arquitecturas para las que la presente versión de pruebas fue construida.  
+* Instalar el paquete en pruebas no hará la distribución menos instalable.  
 * El paquete no introduce nuevos bugs de publicación críticos. 
 
 1. Edite el fichero /etc/apt/sources.list, cambiando 'stable' (o 'buster' o el actual nombre clave para stable) a 'testing' (o 'bullseye' el actual nombre clave para la siguiente publicación estable).
