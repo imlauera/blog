@@ -2,6 +2,8 @@
 title: "Instalacion y Hola Mundo en Zig"
 date: 2022-11-02T01:44:21-03:00
 author: Andres Imlauer
+categories: ['programacion']
+tags: ['zig']
 ---
 ## Instalación
 Lo descargan desde https://ziglang.org/download/

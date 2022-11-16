@@ -10,3 +10,5 @@ Sólo usá una VPN si querés ocultar tu sexualidad, si subís piratería o si s
 Lo que si es cierto es que tu proveedor de servicios o un cibercriminal puede ver las páginas que visitás y las contraseñas
 de las páginas que no usen HTTPS, lo cual es una minoría grande ya que todas las redes sociales y páginas medianamente
 conocidas usan HTTPS y encima hay certificados gratis de SSL. 
+
+Aparten pueden usar Lokinet, o Tor o I2P que son mas seguras y gratis.

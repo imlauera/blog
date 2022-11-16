@@ -3,8 +3,8 @@ layout: post
 title: Aprendiendo punteros en C
 ---
 
-### Ver archivo main.c
-```
+### Ejemplo
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
