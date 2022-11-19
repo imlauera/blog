@@ -1,5 +1,5 @@
 ---
-title: "Porque Systemd es malo para Linux"
+title: "Systemd es malo para GNU/Linux"
 date: 2022-11-02T08:38:19-03:00
 categories: ['linux']
 tags: ['systemd']
