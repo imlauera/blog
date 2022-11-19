@@ -137,5 +137,4 @@ convert -resize x16 -gravity center -crop 16x16+0+0 input.png -flatten -colors 2
 #### Cortar una parte de un video
 ```bash
 ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -t 00:00:10.0 output.wmv
-
 ```
