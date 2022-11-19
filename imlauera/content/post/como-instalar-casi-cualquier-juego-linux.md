@@ -72,7 +72,7 @@ Asegúrese de no tener amdvlk instalado con `sudo pacman -R amdvlk`. Tenerlo ins
 sudo pacman -S --needed lib32-giflib lib32-gnutls lib32-libxcomposite lib32-libxinerama lib32-libxslt lib32-mpg123 lib32-v4l-utils lib32-alsa-lib lib32-alsa-plugins lib32-libpulse lib32-openal lib32-zlib giflib libgphoto2 libxcrypt-compat zlib gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gstreamer-vaapi gst-libav
 ```
 
-#### OPTIONAL - bindtointerface - bloquear actividad de red no-LAN port defecto
+#### Opcional - bindtointerface - bloquear actividad de red no-LAN port defecto
 ```
 sudo pacman -S --needed rumpowered/bindtointerface
 ```
@@ -96,9 +96,9 @@ deb-src http://deb.debian.org/debian/ sid main
 
 sudo apt update && sudo apt full-upgrade && sudo reboot
 ```
-- Optionally you can install `apt-listbugs apt-listchanges` to read the bugs and see if any of them will break your distro.
+- Opcionalmente, puede instalar `apt-listbugs apt-listchanges` para leer los errores y ver si alguno de ellos dañará su distribución.
 
-#### MPR, MPR helper and wine repos
+#### MPR, MPR helper y repositorios wine 
 ```sh
 sudo dpkg --add-architecture i386
 wget -qO - 'https://proget.hunterwittenborn.com/debian-feeds/makedeb.pub' | \
@@ -110,13 +110,13 @@ sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-bui
 sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bullseye/winehq-bullseye.sources
 ```
 
-#### core packages
+#### paquetes básicos
 ```sh
 git clone https://mpr.makedeb.org/dwarfs-bin.git && cd dwarfs-bin && makedeb -si
 sudo apt install fuse-overlayfs winehq-staging
 ```
 
-#### graphics packages
+#### paquetes gráficos
 ```sh
 Vulkan drivers (AMD/INTEL)
 sudo apt install libvulkan1 vulkan-tools
@@ -131,24 +131,21 @@ sudo apt update && sudo apt upgrade -y
 
 sudo apt install nvidia-driver nvidia-settings nvidia-smi nvidia-xconfig nvidia-opencl-icd nvidia-opencl-common nvidia-detect linux-image-amd64 linux-headers-amd64
 ```
+- NVIDIA: Agregue `nvidia-drm.modeset=1` como parámetro del kernel para obtener los mejores resultados.
 
-- NVIDIA: Add `nvidia-drm.modeset=1` as a kernel parameter for the best results.
-
-#### various libraries required by some games
+#### varias bibliotecas requeridas por algunos juegos
 ```sh
 sudo apt install libva2 giflib-tools libgphoto2-6 libxcrypt-source libva2:i386 alsa-utils:i386 libopenal1:i386 libpulse0:i386 gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-vaapi gstreamer1.0-libav
 ```
 
+## Setup Guide - Fedora
 
-#### [Fedora and Rawhide](fedora.md)
-#### Setup Guide - Fedora
-
-#### core packages
+#### paquetes básicos
 ```sh
 sudo dnf copr enable jc141/DwarFS && sudo dnf install fuse-overlayfs dwarfs wine wine-mono
 ```
 
-#### graphics packages
+#### paquetes gráficos
 
 ```sh
 # Universal
@@ -156,27 +153,25 @@ sudo dnf install vulkan vulkan-loader
 
 # NVIDIA specific
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && sudo dnf install xorg-x11-drv-nvidia akmod-nvidia
-
-Add `nvidia-drm.modeset=1` as a kernel parameter for the best results.
 ```
+- NVIDIA: Agregue `nvidia-drm.modeset=1` como parámetro del kernel para obtener los mejores resultados.
 
-- Fedora does not provide wine-staging. Unexpected issues can occur.
+- Fedora no proporciona wine-staging. Pueden ocurrir problemas inesperados.
 
-#### other libraries
+#### otras bibliotecas
 ```sh
 sudo dnf install libxcrypt zlib alsa-lib alsa-plugins fluidsynth pulseaudio openal
 ```
-#### [OpenSUSE Tumbleweed](opensuse.md)
-### Setup Guide - OpenSUSE Tumbleweed
+## Setup Guide - OpenSUSE Tumbleweed
 
-#### core packages
+#### paquetes básicos
 ```sh
 sudo zypper ar https://download.opensuse.org/repositories/home:/jc141/openSUSE_Tumbleweed/home:jc141.repo
 sudo zypper refresh
 sudo zypper install dwarfs fuse-overlayfs wine-staging wine-mono
 ```
 
-#### graphics packages
+#### paquetes gráficos
 ```sh
 Vulkan drivers
 sudo zypper install libvulkan1 vulkan-tools
@@ -189,40 +184,35 @@ sudo zypper install libglvnd-32bit libglvnd
 ```
 - NVIDIA: Add `nvidia-drm.modeset=1` as a kernel parameter for the best results.
 
-#### various libraries required by some games
+#### varias bibliotecas requeridas por algunos juegos
 ```sh
 sudo zypper install giflib-devel-32bit libXcomposite-devel-32bit libXinerama-devel-32bit libxslt-devel-32bit mpg123-devel-32bit mpg123-openal-32bit zlib-devel-32bit libpulse-devel-32bit giflib-devel libgphoto2-6 zlib-devel libva2 gstreamer-plugins-base gstreamer-plugins-good gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-plugins-vaapi gstreamer-plugins-libav
 ```
 
-### not supported distros
+### distros no soportadas
 
-Releases might work but we can't promise anything and don't want to waste time troubleshooting, for setup look at what most closely resembles your distro and use common sense. For example, if you use apt as your package manager you go for debian.
+Los lanzamientos pueden funcionar, pero no podemos prometer nada y no queremos perder el tiempo resolviendo problemas, para la configuración, observe qué se parece más a su distribución y use el sentido común. Por ejemplo, si usa apt como su administrador de paquetes, elija debian.
 
  - Ubuntu (malware)
-   - And all distros based on it: Kubuntu, Lubuntu, Xubuntu, Mint, Elementary OS, Zorin OS, POP! OS, LXLE, KDE Neon 
- - SteamOS (malware, read-only, lack of packages)
- - Fedora Silverblue (read-only)
+   - Y todas las distros basadas en Ubuntu: Kubuntu, Lubuntu, Xubuntu, Mint, Elementary OS, Zorin OS, POP! OS, LXLE, KDE Neon.
+ - SteamOS (malware, solo lectura, falta de paquetes)
+ - Fedora Silverblue (solo lectura)
 
-### hardware support
+### soporte de hardware
+- La GPU/APU debe ser compatible con Vulkan; de lo contrario, casi no se ejecutarán versiones con Wine.
+- El sistema de montaje de dwarfs requiere estándares de velocidad modernos tanto para los dispositivos de almacenamiento como para la memoria RAM.
 
-- The GPU/APU must have vulkan support otherwise hardly any releases with wine will run.
-
-- The dwarfs mounting system requires modern speed standards from storing devices as well as RAM.
-
-- [SteamDeck support on Arch](steamdeck.md)
 ## Setup Guide - SteamDeck
 
-- Report issues you are having to us on matrix.
-- SteamOS not supported or planned to be.
-
-#### install any Arch distro. We recommend EndeavourOS.
-
-1. Create a bootable usb drive with the distro iso. - [Guide](https://discovery.endeavouros.com/installation/create-install-media-usb-key/2021/03/)
-2. Use a USB-C adapter to connect the drive to your deck.
-3. Turn off your deck, hold 'Volume Down' and click the Power button, when you hear a sound let go of the volume button.
-4. Select the usb efi device.
-5. Follow installer steps. Pick KDE Plasma if you want to deal with least amount of issues. (online install)
-6. Boot into new system and run `sudo pacman -Syyu` then reboot again.
+- Infórmenos sobre los problemas que tenga en Matrix.
+- SteamOS no es compatible o no está previsto que lo sea.
+#### instala cualquier distro de Arch. Recomendamos EndeavourOS.
+1. Cree una unidad USB de arranque con la distro iso. - [Guía](https://discovery.endeavouros.com/installation/create-install-media-usb-key/2021/03/)
+2. Utilice un adaptador USB-C para conectar la unidad a su deck.
+3. Apague su plataforma, mantenga presionado 'Bajar volumen' y haga clic en el botón de Encendido, cuando escuche un sonido, suelte el botón de volumen.
+4. Seleccione el dispositivo usb efi.
+5. Siga los pasos del instalador. Elija KDE Plasma si quiere lidiar con la menor cantidad de problemas. (instalación en línea)
+6. Arranque en el nuevo sistema y ejecute sudo `pacman -Syyu` y luego reinicie de nuevo.
 
 #### add required repos
 
@@ -246,60 +236,60 @@ sudo sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 sudo pacman -Syyu
 ```
 
-#### SteamDeck Hardware drivers
+#### SteamDeck hardware drivers
 
 ```sh
 sudo pacman -S jupiter/linux-neptune jupiter/linux-neptune-headers jupiter/linux-firmware-neptune jupiter/jupiter-hw-support rumpowered/sc-controller
 ```
 
-#### make new kernel default
+#### haga que el nuevo kernel sea predeterminado
 
 ```sh
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-Reboot and select the option with `linux neptune` using the arrow keys.
+Reinicie y seleccione la opción con `linux neptune` usando las teclas de flecha.
 
 
-#### core packages
+#### paquetes básicos
 ```sh
 sudo pacman -S --needed rumpowered/dwarfs fuse-overlayfs wine-staging wine-mono openssl-1.1
 ```
 
-#### graphics packages
+#### paquetes gráficos
 ```sh
 sudo pacman -S --needed lib32-vulkan-icd-loader vulkan-icd-loader lib32-vulkan-radeon vulkan-radeon
 ```
 
-#### various libraries required by some games
+#### varias bibliotecas requeridas por algunos juegos
 ```sh
 sudo pacman -S --needed lib32-giflib lib32-gnutls lib32-libxcomposite lib32-libxinerama lib32-libxslt lib32-mpg123 lib32-v4l-utils lib32-alsa-lib lib32-alsa-plugins lib32-libpulse lib32-openal lib32-zlib giflib libgphoto2 libxcrypt-compat zlib gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad gstreamer-vaapi gst-libav
 ```
 
 #### post-setup
-- On KDE Plasma, you might need to go into settings and set the correct screen position. On other DE's you might be stuck with no such options.
+- En KDE Plasma, es posible que deba ingresar a la configuración y establecer la posición correcta de la pantalla. En otros entornos de escritorio, es posible que no tenga tales opciones.
 
 
 
-### running
+### Corriendo
 
 ```sh
 cd "path to extracted game"
 bash start.w.sh - or however the script is named.
 
-To enable terminal output, add DBG=1 before bash command.
+Para habilitar la salida de la terminal, agrega DBG=1 antes de el comando bash.
 ```
-- settings.sh commands
+- settings.sh comandos
 ```
 bash settings.sh extract-dwarfs / unmount-dwarfs / mount-dwarfs / delete-dwarfs / compress-to-dwarfs
 ```
 
-#### modding on dwarfs
+#### modificaciones sobre dwarfs
 
-- Adding mods is supported through groot-rw directory. Before mounting, any files included in it will go above the mounted image and override any of the files. The path required for the mod may need to be created manually.
+- Se admite agregar mods a través del directorio groot-rw. Antes del montaje, cualquier archivo incluido en él se colocará encima de la imagen montada y anulará cualquiera de los archivos. Es posible que la ruta requerida para el mod deba crearse manualmente.
 
-- Games which are extracted do not require this method.
+- Los juegos que se extraen no requieren este método.
 
-#### other notes
+#### otras notas
 
-- The testing is done on Arch or EndeavourOS with EXT4, BTRFS or XFS filesystems.
+- La prueba se realiza en Arch o EndeavourOS con sistemas de archivos EXT4, BTRFS o XFS.

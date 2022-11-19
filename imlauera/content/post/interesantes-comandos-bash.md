@@ -1,14 +1,13 @@
 ---
-title: "Cool Bash Commands"
+title: "Interesantes comandos de Bash"
 date: 2022-11-19T01:54:18-03:00
 ---
 
-### Cool Bash Commands
+Un chiste clásico: 
 #### Instalar OhMyZsh 
 ```bash
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-Por el momento deje ohmyzsh y estoy usando pretzo 
 #### Instalar yt-dlp
 yt-dlp es un fork mejorado de YouTube-dl
 
@@ -92,10 +91,6 @@ help %builtin/keyword%
 apropos %something%
 ```
 
-```bash
-rsync
-```
-
 ### Observar memoria disponible/usada
 ```bash
 watch free -h
@@ -109,26 +104,23 @@ Solo para sistemas con systemd es equivalente al comando anterior
 systemd-cgtop -m -d 5 -n 10
 ```
 
->handling disconnects to the vpn server
->preventing any traffic from not going through the vpn
-This is what network namespaces are for. You pass the VPN adapter to a network namespace and launch programs that use the VPN in the same namespace. Nothing in the namespace can access the Internet without the VPN adapter. There's a program called vopono to help automate this, but it's not difficult to do from scratch either. A lot of vendor clients do janky shit that doesn't doesn't require the user to be aware of their network config, like just change the default route to VPN and have a 'kill switch' service, but this is not reliable.
+#### Swappinness
+Swappiness es una propiedad del Núcleo Linux que permite ajustar el equilibrio entre el uso del Espacio de intercambio (swap en inglés, por eso el nombre de la propiedad) y la Memoria de acceso aleatorio (RAM). El swappiness puede tomar valores desde el 0 hasta el 100. Si se establece 0 el núcleo intentará no hacer intercambio, mientras que si se establece 100 el sistema intentará mantener la Memoria de acceso aleatorio lo más libre posible haciendo intercambio.
 
-Use this for mullvad:
-[mullvad-netns](https://github.com/chutz/mullvad-netns)
-
-```bash
-ip netns exec mullvad curl https://linux.com
-```
-
-Using network namespaces to force VPN use on select applications [https://try.popho.be/vpn-netns.html](https://try.popho.be/vpn-netns.html)
 
 ```bash
 sudo sysctl vm.swappiness
 ```
+#### Listar nombre y cantidad de ventanas abiertas
+```bash
+lsw
+```
 
+#### Utilidad para probar y configurar dispositivos de entrada Xorg.
 ```bash
 xinput list
 ```
+#### Listar todos los dispositivos PCI
 ```bash
 lspci -k
 ```
@@ -136,3 +128,14 @@ lspci -k
 ip addr
 ```
 
+
+#### Convertir PNG a ICO
+```bash
+convert -resize x16 -gravity center -crop 16x16+0+0 input.png -flatten -colors 256 -background transparent output/favicon.ico
+```
+
+#### Cortar una parte de un video
+```bash
+ffmpeg -ss 00:00:30.0 -i input.wmv -c copy -t 00:00:10.0 output.wmv
+
+```
