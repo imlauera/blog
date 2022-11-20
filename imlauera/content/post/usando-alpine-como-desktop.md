@@ -5,6 +5,7 @@ date: 2022-11-19T18:18:06-03:00
 ### Introducción
 Alpine Linux es una distro extremadamente ligera, tan ligera que no se puede considerar GNU/Linux. Alpine viene sin sytemd usa OpenRC y el software se compila usando Musl en lugar de la biblioteca C de GNU (Libc), y sustituye las herramientas GNU por Busybox, [un único ejecutable capaz de emular el funcionamiento de todas ellas](https://www.genbeta.com/herramientas/busybox-ejecutable-que-agrupa-casi-200-utilidades-gnu-linea-comandos-que-puedes-usar-tambien-windows-android).  
 ### Instalación
+Busybox es un único ejecutable, ingeniosamente diseñado para reutilizar tanto como sea posible internamente y simular aplicaciones independientes por medio de enlaces simbólicos. No tienen mucho en común.
 
 Aca dejo un video de una instalación básica.
 
@@ -15,3 +16,6 @@ Luego hay que configurar WiFi.
 
 Aca dejo otra guía para ello:
 [https://wiki.alpinelinux.org/wiki/Wi-Fi](https://wiki.alpinelinux.org/wiki/Wi-Fi)
+
+#### Complicaciones
+Usa libc y la compatibilidad con binarios precompilados no es la mejor.
