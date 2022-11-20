@@ -128,6 +128,13 @@ lspci -k
 ip addr
 ```
 
+```bash
+sudo fdisk -l
+```
+```bash
+sudo lsblk
+```
+
 
 #### Convertir PNG a ICO
 ```bash
